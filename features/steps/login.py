@@ -1,4 +1,4 @@
-from behave import given, use_step_matcher, when
+from behave import given, use_step_matcher, when, then
 
 from features.page_objects.login_page import LoginPage
 
@@ -16,3 +16,8 @@ def submit_login_form(context, login, password):
     page = LoginPage(context.driver)
     page.submit_login_form(login, password)
 
+
+@then('I see form "([^"]*)" massage')
+def form_error(context, error):
+    page = LoginPage(context.driver)
+    page.login_form_error(error)
