@@ -21,3 +21,9 @@ def submit_login_form(context, login, password):
 def form_error(context, error):
     page = LoginPage(context.driver)
     page.login_form_error(error)
+
+
+@then('I am a logged in user')
+def login_to_website(context):
+    page = LoginPage(context.driver)
+    page.logged_in_user()
